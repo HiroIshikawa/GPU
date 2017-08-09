@@ -1,5 +1,5 @@
 # GPU (Garbage Processing Unit)
-## Software Module of An Autonomous Clearning Robot
+## Eco-friendly Compact Autonomous Cleaning Robot
 
 GPU is an environmentally friendly compact autonomous cleaning robot.
 This repo includes the main control program and object detection/measurement/tracking implementation.
@@ -29,7 +29,7 @@ Then run the PC driver
 ```
 python pc_driver.py 20 40 1.1 7 400 300
 ```
-* Each argument of calling script corresponds to:
+Each argument of calling script corresponds to:
 
 - Arg 1: object width (i.e. 20)
 - Arg 2: object height (i.e. 40)
