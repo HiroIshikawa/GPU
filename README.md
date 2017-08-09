@@ -22,7 +22,7 @@ OpenCV 3.1.0
 Clone the repo
 ```
 git clone https://github.com/HiroIshikawa/GPU
-cd GPU
+cd GPU/src
 ```
 
 Then run the PC driver
