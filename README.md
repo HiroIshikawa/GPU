@@ -1,4 +1,5 @@
-# GPU (Garbage Processing Unit) - autonomous clearning robot
+# GPU (Garbage Processing Unit)
+## Software Module of An Autonomous Clearning Robot
 
 GPU is an environmentally friendly compact autonomous cleaning robot.
 This repo includes the main control program and object detection/measurement/tracking implementation.
