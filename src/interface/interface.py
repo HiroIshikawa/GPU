@@ -14,13 +14,11 @@ def writeNumber(value):
     try:
         bus.write_byte(address, value)
     except IOError:
-        # print('IOError happend')
+        print('IOError happend')
         pass
     except NameError:
-        # print('NameError happend')
-        # print('You may run this program not on Pi')
+        print('NameError happend')
         pass
-    # bus.write_byte_data(address, 0, value)
 
 
 def readNumber():
@@ -29,7 +27,6 @@ def readNumber():
     except IOError:
         number = -1
         pass
-    # number = bus.read_byte_data(address, 1)
     except NameError:
         number = -1
         pass
@@ -62,18 +59,14 @@ def track(avg_pos):
 def monitor(avg_pos):
     if avg_pos < 150 or avg_pos > -150:
         distance = readNumber()
-        # print('Appx distance to the object: '+str(distance))
     else:
         distance = -1
     # print('Distance reading: '+str(distance))
     if distance > 0 and distance < 29 and not distance == 1 and not distance == 25:
-        # accm_time = time.time()
         start_time = time.time()
-        # pickup()  # picking up mode initiation
-        # writeNumber(0)
-        writeNumber(8)
+        writeNumber(8)  # Initiate pickup motion
         while True:
-            if time.time()-start_time > 1.:  # 
+            if time.time()-start_time > 1.:  #
                 complete = readNumber()
                 print('Complete?: '+str(complete))
                 if complete==1:
@@ -82,8 +75,3 @@ def monitor(avg_pos):
                     time.sleep(5)
                     break
                 start_time = time.time()
-            #if time.time()-accm_time > 10.:  # if 10 seconds passed after initiating picking up sequence
-            #    print('10 seconds passed. Backing detection state.')
-            #    writeNumber(0)
-            #    time.sleep(5)
-            #    break
