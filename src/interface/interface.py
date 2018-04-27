@@ -11,6 +11,7 @@ except ImportError:
 
 
 def writeNumber(value):
+    """Write number to smbus"""
     try:
         bus.write_byte(address, value)
     except IOError:
@@ -22,6 +23,7 @@ def writeNumber(value):
 
 
 def readNumber():
+    """Read number from smbus"""
     try:
         number = bus.read_byte(address)
     except IOError:
@@ -34,6 +36,7 @@ def readNumber():
 
 
 def track(avg_pos):
+    """Track the object by adjusting angle"""
     if avg_pos > 300:
         print("Detected at +"+str(avg_pos)+" units, Rotate Right.")
         var = 4  # rotate right
@@ -57,6 +60,7 @@ def track(avg_pos):
 
 
 def monitor(avg_pos):
+    """Monitor distance to initiate the object pickup sequence"""
     if avg_pos < 150 or avg_pos > -150:
         distance = readNumber()
     else:
