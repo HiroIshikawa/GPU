@@ -22,8 +22,7 @@ def navigate(candidates):
         avg_pos = mean(candidates)
         track_flag = True
         candidates[:] = []
-    else:
-        pass
+
 
 # Inputs from command line
 obj_w = int(argv[1])
@@ -72,7 +71,7 @@ try:
             monitor_start_time = time.time()
             track_flag = False
 
-        # Every time object detected, there's 5 secs window to keep runnning monitor()
+        # If tracking activate, keep rotation adjustment for x. sec
         if time.time() - monitor_start_time < 5.:
             monitor(avg_pos)
 
