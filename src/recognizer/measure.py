@@ -39,20 +39,14 @@ def measure(img, rects, candidates):
     regularly to initiate a command to arduino.
     """
     img_center = centering_img(img)
-    num_boxes = len(rects)
     boxes = []
-    for k in range(num_boxes):
-        boxes.append({'box_id':0,'box_size': (0,0),'box_center':(0,0),'box_to_center':(0,0)})
-
     for i, rect in enumerate(rects):
-        boxes[i]['box_id'] = i
-        box_size = sizing_box(rect)
-        boxes[i]['box_size'] = box_size
-        box_center = centering_box(rect)
-        boxes[i]['box_center'] = box_center
-        box_to_center = pos_from_center(img_center, box_center)
-        boxes[i]['box_to_center'] = box_to_center
-
+        boxes.append({
+            'box_id': i,
+            'box_size': sizing_box(rect),
+            'box_center': centering_box(rect),
+            'box_to_center': pos_from_center(img_center, box_center)
+        })
     if (boxes):
         maxSizeItem = max(boxes, key=lambda x:x['box_size'][0]*x['box_size'][1])
         candidates.append(maxSizeItem['box_to_center'][0])
