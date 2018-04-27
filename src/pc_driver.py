@@ -4,7 +4,7 @@ from recognizer.preprocess import *
 from interface.interface import *
 
 from sys import argv
-import sys
+from statistics import mean
 import cv2
 import numpy as np
 import time
@@ -12,20 +12,9 @@ import threading
 
 from video.video import WebcamVideoStream
 
-def command(avg_pos):
-    if (avg_pos > 10):
-        print("Turn Right: Rotate "+str(avg_pos)+" units")
-    elif (avg_pos < -10):
-        print("Turn Left: Rorate "+str(avg_pos)+" units")
-    else:
-        print("Go Straight")
-
-def mean(l):
-    if len(l) == 0:
-        return 0.0
-    return sum(l)/len(l)
 
 def navigate(candidates):
+    """Theaded navigation handler"""
     threading.Timer(0.5, navigate, args=[candidates]).start()
     global track_flag
     global avg_pos
