@@ -81,7 +81,7 @@ try:
         # ret, img = cap.read()
         img = vs.read()
         imshape = img.shape
-        # vertices = np.array([[(0,imshape[0]),(0,int(imshape[0]/2)), 
+        # vertices = np.array([[(0,imshape[0]),(0,int(imshape[0]/2)),
         #     (int(imshape[1]),int(imshape[0]/2)), (imshape[1],imshape[0])]], dtype=np.int32)
         # cv2.imshow("Raw", img)
         # img = region_of_interest(img, vertices)
@@ -113,7 +113,7 @@ try:
             track_flag = False
             # time.sleep(.1)
 
-        # if monitor_flag: 
+        # if monitor_flag:
         if time.time()-monitor_start_time < 5.:  # every time object detected, there's 5 secs window to keep runnning monitor()
             monitor(avg_pos)
             # monitor_flag = False
@@ -135,3 +135,5 @@ try:
 except KeyboardInterrupt:
     vs.stop()
     cv2.destroyAllWindows()
+
+#
